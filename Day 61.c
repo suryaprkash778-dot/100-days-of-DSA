@@ -1,3 +1,13 @@
+
+void dfs(int** isConnected, int n, int city, bool* visited) {
+    visited[city] = true;
+    for (int j = 0; j < n; j++) {
+        if (isConnected[city][j] == 1 && !visited[j]) {
+            dfs(isConnected, n, j, visited);
+        }
+    }
+}
+
 int findCircleNum(int** isConnected, int isConnectedSize, int* isConnectedColSize) {
     bool visited[isConnectedSize];
     for (int i = 0; i < isConnectedSize; i++) {
@@ -23,3 +33,4 @@ int findCircleNum(int** isConnected, int isConnectedSize, int* isConnectedColSiz
     }
     return provinces;
 }
+
