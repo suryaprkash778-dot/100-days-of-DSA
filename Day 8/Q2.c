@@ -1,14 +1,8 @@
-#include <stdio.h>
-#include <stdbool.h>
 bool isPowerOfTwo(int n) {
-    if(n<=0) return false;
-    while(n%2 ==0){
-            n/=2;
-        }
-    return (n==1);
-}
-int main() {
-    int n1 = 32,n2=6;
-    (isPowerOfTwo(n2))?printf("it is power of two"):printf("its not power of two");
-    return 0;
+    if (n <= 0) return false;  // handle non-positive numbers
+    while (n > 1) {
+        if (n % 2 != 0) return false;  // if not divisible by 2, not a power of two
+        n /= 2;
+    }
+    return true;
 }
